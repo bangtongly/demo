@@ -232,8 +232,8 @@
   $(document).ready(function(){
   $(".btn").click(function(){
     $('#myModal').on('shown.bs.modal', function () {
-  $('#myInput').trigger('focus')
-})
+    $('#myInput').trigger('focus')
+  })
   });
 });
 </script>
