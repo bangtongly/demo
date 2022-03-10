@@ -14,8 +14,29 @@ use Illuminate\Support\Facades\Route;
 */
 
 Route::get('/', function () {
-    return redirect('/dashboard');
-});
+    return view('profile');
+})->name('profile');
+
+Route::get('/listen-music', function(){
+    return view('listen_music');
+})->name('listen_music');
+
+Route::get('/stick-hero', function(){
+    return view('game_stick_hero');
+})->name('stick_hero');
+
+
+// Route::middleware(['admin', 'second'])->group(function () {
+    Route::prefix('admin')->group(function () {
+        Route::get('/dashboad', function(){
+            return view('tailwind');
+        })->name('admin');
+        Route::get('/users', function () {
+            // Matches The "/admin/users" URL
+        });
+    });
+// });
+
 
 Route::get('/dashboard', function () {
     return view('dashboard');
@@ -45,7 +66,9 @@ Route::get('/test', function(){
 })->name('test');
 
 Route::get('/admin-dashboad', function(){
-    return view('tailwind');
-})->name('admin');
+    return view('pages/404');
+});
+
+
 
 require __DIR__.'/auth.php';
