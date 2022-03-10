@@ -27,7 +27,7 @@
 		<!-- TAB 1 -->
 		<input type="radio" name="tab" id="tab-01" checked />
 		<label for="tab-01">
-			<a href="{{ route('stick_hero') }}">
+			<a href="{{ route('profile') }}">
 				<svg>
 				  <use xlink:href="#icon-01" class="icon" />
 				</svg>
@@ -37,7 +37,7 @@
 		<!-- TAB 2 -->
 		<input type="radio" name="tab" id="tab-02" />
 		<label for="tab-02">
-			<a href="">
+			<a href="{{ route('timeline') }}">
 				<svg>
 				  <use xlink:href="#icon-02" class="icon" />
 				</svg>
@@ -47,7 +47,7 @@
 		<!-- TAB 3 -->
 		<input type="radio" name="tab" id="tab-03" />
 		<label for="tab-03">
-			<a href="">
+			<a href="{{ route('listen_music') }}">
 				<svg>
 				  <use xlink:href="#icon-03" class="icon" />
 				</svg>
@@ -57,7 +57,7 @@
 		<!-- TAB 4 -->
 		<input type="radio" name="tab" id="tab-04" />
 		<label for="tab-04">
-			<a href="">
+			<a href="{{ route('stick_hero') }}">
 				<svg>
 				  <use xlink:href="#icon-04" class="icon" />
 				</svg>

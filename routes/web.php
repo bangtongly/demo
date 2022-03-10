@@ -1,6 +1,7 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\TimelineController;
 
 /*
 |--------------------------------------------------------------------------
@@ -25,6 +26,11 @@ Route::get('/stick-hero', function(){
     return view('game_stick_hero');
 })->name('stick_hero');
 
+// Route::get('/timeline', function(){
+//     return view('timeline');
+// })->name('timeline');
+
+Route::get('timeline', [TimelineController::class, 'getTimeline']);
 
 // Route::middleware(['admin', 'second'])->group(function () {
     Route::prefix('admin')->group(function () {
