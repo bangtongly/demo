@@ -27,7 +27,13 @@
 
 			<div class="cd-timeline-content">
 				<h2>{{ $data->title }}</h2>
-				@if ($data->video != '')
+				@if ($data->video != '' && $data->active == 0)
+{{--                    <video width="475" height="261" controls>--}}
+{{--                        <source src="{{ $data->video }}" type="video/mp4">--}}
+{{--                    </video>--}}
+{{--                    <iframe width="475" height="261" src="https://www.youtube.com/embed/ewFmBXXVKG8" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>--}}
+                    <iframe src="{{ $data->video }}" frameborder="0"></iframe>
+                @elseif($data->video != '' && $data->active == 1)
 					<video width="475" height="261" controls>
 						<source src="{{ asset('storage/'.$data->video)}}" type="video/mp4">
 					</video>
