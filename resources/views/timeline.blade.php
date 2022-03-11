@@ -21,19 +21,28 @@
         @foreach ($data as $data)
             <div class="cd-timeline-block">
 			<div class="cd-timeline-img cd-picture">
-				<img src="https://s3-us-west-2.amazonaws.com/s.cdpn.io/148866/cd-icon-picture.svg" alt="Picture">
+				<img src="{{ $data->icon }}" alt="Picture">
+				{{-- <img src="https://s3-us-west-2.amazonaws.com/s.cdpn.io/148866/cd-icon-picture.svg" alt="Picture"> --}}
 			</div> <!-- cd-timeline-img -->
 
 			<div class="cd-timeline-content">
 				<h2>{{ $data->title }}</h2>
-				<p>{{ $data->content }}</p>
+				@if ($data->video != '')
+					<video width="475" height="261" controls>
+						<source src="{{ asset('storage/'.$data->video)}}" type="video/mp4">
+					</video>
+				@else
+					<img src="{{ asset('storage/'.$data->image) }}" alt="" style="border-radius:5px">
+				@endif
+				<p>{{ \Illuminate\Support\Str::limit($data->content, 150, $end = '...') }}</p>
 				<a href="#0" class="cd-read-more">Read more</a>
-				<span class="cd-date">{{ $data->created_at }}</span>
+				<div id="root"></div>
+				<span class="cd-date">{{ date("jS F, Y", strtotime($data->created_at)) }}</span>
 			</div> <!-- cd-timeline-content -->
 		</div> <!-- cd-timeline-block -->
 
         @endforeach
-		<div class="cd-timeline-block">
+		{{-- <div class="cd-timeline-block">
 			<div class="cd-timeline-img cd-picture">
 				<img src="https://s3-us-west-2.amazonaws.com/s.cdpn.io/148866/cd-icon-picture.svg" alt="Picture">
 			</div> <!-- cd-timeline-img -->
@@ -108,12 +117,12 @@
 				<p>This is the content of the last section</p>
 				<span class="cd-date">Feb 26</span>
 			</div> <!-- cd-timeline-content -->
-		</div> <!-- cd-timeline-block -->
+		</div> <!-- cd-timeline-block --> --}}
 	</section> <!-- cd-timeline -->
 </body>
 <!-- partial -->
-  <script src='https://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.3/jquery.min.js'>
-</script><script  src="{{ asset('js/timeline.js') }}"></script>
+  <script src='https://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.3/jquery.min.js'></script>
+  <script  src="{{ asset('js/timeline.js') }}"></script>
 
 </body>
 </html>

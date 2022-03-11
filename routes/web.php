@@ -26,11 +26,12 @@ Route::get('/stick-hero', function(){
     return view('game_stick_hero');
 })->name('stick_hero');
 
+Route::get('timeline', [TimelineController::class, 'getTimeline'])->name('timeline');
+
 // Route::get('/timeline', function(){
 //     return view('timeline');
 // })->name('timeline');
 
-Route::get('timeline', [TimelineController::class, 'getTimeline']);
 
 // Route::middleware(['admin', 'second'])->group(function () {
     Route::prefix('admin')->group(function () {
